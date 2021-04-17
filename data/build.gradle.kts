@@ -26,6 +26,7 @@ android {
 
 dependencies {
     implementation(Kotlin.kotlinStdLib)
+    implementation(Timber.timber)
 
     // Hilt
     implementation(Hilt.hiltAndroid)

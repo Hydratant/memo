@@ -45,6 +45,8 @@ dependencies {
     implementation(Hilt.hiltViewModel)
     kapt(Hilt.androidHiltCompiler)
 
+    implementation(Timber.timber)
+
     testImplementation(UnitTest.junit)
     testImplementation(UnitTest.mockitoInline)
     testImplementation(UnitTest.mockitoKotlin)
