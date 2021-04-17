@@ -42,10 +42,6 @@ object Hilt {
     const val hiltAndroid = "com.google.dagger:hilt-android:${daggerHiltVersion}"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${daggerHiltVersion}"
 
-    private const val androidxHiltVersion = "1.0.0-alpha03"
-    const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${androidxHiltVersion}"
-    const val androidHiltCompiler = "androidx.hilt:hilt-compiler:${androidxHiltVersion}"
-
     const val hiltTest = "com.google.dagger:hilt-android-testing:$daggerHiltVersion"
 }
 
@@ -57,6 +53,15 @@ object Room {
     const val roomKtx = "androidx.room:room-ktx:$roomVersion"
     const val roomTesting = "androidx.room:room-testing:$roomVersion"
 }
+
+object Coroutine {
+    private const val coroutineVersion = "1.4.3"
+    const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}"
+    const val coroutinesAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+    const val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion"
+}
+
 
 object Timber {
     private const val timberVersion = "4.7.1"

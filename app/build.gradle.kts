@@ -44,8 +44,6 @@ dependencies {
     // Hilt
     implementation(Hilt.hiltAndroid)
     kapt(Hilt.hiltCompiler)
-    implementation(Hilt.hiltViewModel)
-    kapt(Hilt.androidHiltCompiler)
 
     implementation(Timber.timber)
 
