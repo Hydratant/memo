@@ -32,4 +32,9 @@ dependencies {
     kapt(Hilt.hiltCompiler)
     implementation(Hilt.hiltViewModel)
     kapt(Hilt.androidHiltCompiler)
+
+    implementation(Room.room)
+    kapt(Room.roomCompiler)
+    implementation(Room.roomKtx)
+    testImplementation(Room.roomTesting)
 }
