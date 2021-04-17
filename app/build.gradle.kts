@@ -1,7 +1,9 @@
 plugins {
     id("com.android.application")
+    id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
+
 }
 android {
 
@@ -37,11 +39,17 @@ dependencies {
     implementation(AndroidX.UI.recyclerView)
     implementation(AndroidX.UI.viewpager2)
 
-    testImplementation (UnitTest.junit)
-    testImplementation (UnitTest.mockitoInline)
-    testImplementation (UnitTest.mockitoKotlin)
-    testImplementation (UnitTest.hamcrest)
-    testImplementation (UnitTest.robolectric)
+    // Hilt
+    implementation(Hilt.hiltAndroid)
+    kapt(Hilt.hiltCompiler)
+    implementation(Hilt.hiltViewModel)
+    kapt(Hilt.androidHiltCompiler)
+
+    testImplementation(UnitTest.junit)
+    testImplementation(UnitTest.mockitoInline)
+    testImplementation(UnitTest.mockitoKotlin)
+    testImplementation(UnitTest.hamcrest)
+    testImplementation(UnitTest.robolectric)
     implementation(UnitTest.testCore)
 
 }

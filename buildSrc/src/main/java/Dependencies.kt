@@ -29,3 +29,18 @@ object AndroidX {
     }
 }
 
+object Hilt {
+    private const val daggerHiltVersion = "2.34.1-beta"
+    const val gradlePluginDaggerHilt =
+        "com.google.dagger:hilt-android-gradle-plugin:${daggerHiltVersion}"
+    const val hiltAndroid = "com.google.dagger:hilt-android:${daggerHiltVersion}"
+    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${daggerHiltVersion}"
+
+    private const val androidxHiltVersion = "1.0.0-alpha03"
+    const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${androidxHiltVersion}"
+    const val androidHiltCompiler = "androidx.hilt:hilt-compiler:${androidxHiltVersion}"
+
+    const val hiltTest = "com.google.dagger:hilt-android-testing:$daggerHiltVersion"
+}
+
+

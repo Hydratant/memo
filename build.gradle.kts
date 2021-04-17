@@ -6,6 +6,7 @@ buildscript {
     dependencies {
         classpath(Gradle.gradleBuildTool)
         classpath(Kotlin.gradlePluginKotlin)
+        classpath(Hilt.gradlePluginDaggerHilt)
     }
 }
 
