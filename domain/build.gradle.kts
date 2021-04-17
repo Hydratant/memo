@@ -33,4 +33,6 @@ dependencies {
     kapt(Hilt.hiltCompiler)
     implementation(Hilt.hiltViewModel)
     kapt(Hilt.androidHiltCompiler)
+
+    implementation(project(":data"))
 }

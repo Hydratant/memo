@@ -39,6 +39,8 @@ dependencies {
     implementation(AndroidX.UI.recyclerView)
     implementation(AndroidX.UI.viewpager2)
 
+    implementation(Material.material)
+
     // Hilt
     implementation(Hilt.hiltAndroid)
     kapt(Hilt.hiltCompiler)

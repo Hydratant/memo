@@ -29,6 +29,12 @@ object AndroidX {
     }
 }
 
+object Material {
+    private const val materialVersion = "1.3.0"
+    const val material = "com.google.android.material:material:${materialVersion}"
+}
+
+
 object Hilt {
     private const val daggerHiltVersion = "2.34.1-beta"
     const val gradlePluginDaggerHilt =
