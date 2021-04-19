@@ -1,42 +1,37 @@
 package com.tami.memo.data
 
 import android.os.Build
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
-import dagger.hilt.android.testing.HiltTestApplication
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
+import androidx.room.Room
+import androidx.test.platform.app.InstrumentationRegistry
+import kotlinx.coroutines.runBlocking
+import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
-import javax.inject.Inject
 
-@HiltAndroidTest
-@Config(application = HiltTestApplication::class, minSdk = Build.VERSION_CODES.O)
+@Config(sdk = [Build.VERSION_CODES.O])
 @RunWith(RobolectricTestRunner::class)
-@ExperimentalCoroutinesApi
 class MemoDaoTest {
 
-    @get:Rule
-    var hiltRule = HiltAndroidRule(this)
-
-    @Inject
-    lateinit var localMemoDatabase: LocalMemoDatabase
-
-    @Inject
-    lateinit var memoDao: MemoDao
+    private lateinit var memoDao: MemoDao
+    private lateinit var localMemoDatabase: LocalMemoDatabase
 
     @Before
     fun before() {
-        hiltRule.inject()
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        localMemoDatabase =
+            Room.inMemoryDatabaseBuilder(context, LocalMemoDatabase::class.java).build()
+        memoDao = localMemoDatabase.memoDao()
     }
 
     @Test
-    fun insertMemo() = runBlockingTest {
-        val memoEntity = MemoEntity(content = "test")
-        memoDao.insertMemo(memoEntity)
+    fun insertMemo() = runBlocking {
+    }
+
+    @After
+    fun after() {
+        localMemoDatabase.close()
     }
 }
