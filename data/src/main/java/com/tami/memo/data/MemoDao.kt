@@ -9,7 +9,7 @@ interface MemoDao {
     suspend fun getMemoList(): List<MemoEntity>
 
     @Query("SELECT * FROM Memo WHERE uid = :id")
-    suspend fun getMemo(id: String): MemoEntity
+    suspend fun getMemo(id: Int): MemoEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMemo(memoEntity: MemoEntity)
