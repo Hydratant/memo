@@ -32,5 +32,10 @@ dependencies {
     implementation(Hilt.hiltAndroid)
     kapt(Hilt.hiltCompiler)
 
+    // Coroutine
+    implementation(Coroutine.coroutine)
+    implementation(Coroutine.coroutinesAndroid)
+    testImplementation(Coroutine.coroutineTest)
+
     implementation(project(":data"))
 }

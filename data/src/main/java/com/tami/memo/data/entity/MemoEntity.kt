@@ -1,4 +1,4 @@
-package com.tami.memo.data
+package com.tami.memo.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

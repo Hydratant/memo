@@ -3,6 +3,7 @@ package com.tami.memo.data
 import android.os.Build
 import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
+import com.tami.memo.data.entity.MemoEntity
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers

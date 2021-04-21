@@ -1,6 +1,7 @@
 package com.tami.memo.data
 
 import androidx.room.*
+import com.tami.memo.data.entity.MemoEntity
 
 @Dao
 interface MemoDao {
