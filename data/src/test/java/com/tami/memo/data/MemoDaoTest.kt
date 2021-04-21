@@ -22,6 +22,8 @@ class MemoDaoTest {
     private lateinit var localMemoDatabase: LocalMemoDatabase
 
     private val testMemoEntity = MemoEntity(1, "content 1")
+    private val testMemoEntity2 = MemoEntity(2, "content 2")
+    private val testMemoEntity3 = MemoEntity(3, "content 3")
 
     @Before
     fun before() {
@@ -45,25 +47,68 @@ class MemoDaoTest {
     }
 
     @Test
-    fun getMemo() = runBlocking {
+    fun getMemo_return_memoEntity() = runBlocking {
         memoDao.insertMemo(testMemoEntity)
         val memo = memoDao.getMemo(1)
         MatcherAssert.assertThat(memo, Matchers.`is`(testMemoEntity))
     }
 
     @Test
-    fun insertMemo() = runBlocking {
-        memoDao.insertMemo(testMemoEntity)
+    fun getMemo_return_null() = runBlocking {
         val memo = memoDao.getMemo(1)
-        MatcherAssert.assertThat(memo, Matchers.`is`(testMemoEntity))
+        MatcherAssert.assertThat(memo, Matchers.nullValue())
+    }
+
+    @Test
+    fun insertMemo() = runBlocking {
+        val id = memoDao.insertMemo(testMemoEntity)
+        MatcherAssert.assertThat(id, Matchers.`is`(listOf(1.toLong())))
+    }
+
+    @Test
+    fun insertMemo_replace() = runBlocking {
+        val id = memoDao.insertMemo(testMemoEntity)
+        val replaceId = memoDao.insertMemo(MemoEntity(1, "contentInsertReplace"))
+        MatcherAssert.assertThat(replaceId, Matchers.`is`(id))
+
+        val memo = memoDao.getMemo(1)
+        MatcherAssert.assertThat(memo?.content, Matchers.`is`("contentInsertReplace"))
+    }
+
+    @Test
+    fun insertMemo_list() = runBlocking {
+        val idList = memoDao.insertMemo(testMemoEntity, testMemoEntity2, testMemoEntity3)
+        MatcherAssert.assertThat(idList, Matchers.`is`(listOf(1, 2, 3).map { it.toLong() }))
     }
 
     @Test
     fun updateMemo() = runBlocking {
         memoDao.insertMemo(testMemoEntity)
-        memoDao.updateMemo(MemoEntity(1, "contentUpdate"))
+
+        val row = memoDao.updateMemo(MemoEntity(1, "contentUpdate"))
+        MatcherAssert.assertThat(row, Matchers.`is`(1))
+
         val memo = memoDao.getMemo(1)
-        MatcherAssert.assertThat(memo.content, Matchers.`is`("contentUpdate"))
+        MatcherAssert.assertThat(memo?.content, Matchers.`is`("contentUpdate"))
+    }
+
+    @Test
+    fun update_memoList() = runBlocking {
+        memoDao.insertMemo(testMemoEntity, testMemoEntity2, testMemoEntity3)
+
+        val updateArray = arrayOf(
+            MemoEntity(1, "contentUpdate 1"),
+            MemoEntity(2, "contentUpdate 2"),
+            MemoEntity(3, "contentUpdate 3")
+        )
+        val row = memoDao.updateMemo(*updateArray)
+        MatcherAssert.assertThat(row, Matchers.`is`(3))
+
+        val memoList = memoDao.getMemoList()
+        MatcherAssert.assertThat(memoList.size, Matchers.`is`(3))
+        memoList.forEachIndexed { index, memoEntity ->
+            MatcherAssert.assertThat(memoEntity, Matchers.`is`(updateArray[index]))
+        }
     }
 
     @Test
