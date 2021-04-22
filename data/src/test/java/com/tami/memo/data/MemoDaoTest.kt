@@ -6,6 +6,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.tami.memo.data.db.LocalMemoDatabase
 import com.tami.memo.data.db.MemoDao
 import com.tami.memo.data.entity.MemoEntity
+import com.tami.memo.data.model.Memo
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
@@ -125,6 +126,12 @@ class MemoDaoTest {
         memoDao.deleteMemo(testMemoEntity)
         val deleteAfterMemoList = memoDao.getMemoList()
         MatcherAssert.assertThat(deleteAfterMemoList.size, Matchers.`is`(0))
+    }
+
+    @Test
+    fun `deleteMemo_해당 메모 없을시_return_0`() = runBlocking {
+        val deleteResult = memoDao.deleteMemo(MemoEntity(5, "test"))
+        MatcherAssert.assertThat(deleteResult, Matchers.`is`(0))
     }
 
     @After
