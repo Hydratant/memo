@@ -1,8 +1,11 @@
 package com.tami.memo.data
 
 import com.nhaarman.mockitokotlin2.mock
+import com.tami.memo.data.db.MemoDao
 import com.tami.memo.data.entity.MemoEntity
 import com.tami.memo.data.model.Memo
+import com.tami.memo.data.repo.MemoRepository
+import com.tami.memo.data.repo.MemoRepositoryImpl
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
@@ -32,11 +35,20 @@ class MemoRepositoryTest {
 
 
     @Test
-    fun getMemo() = runBlocking {
+    fun getMemo_returnMemo() = runBlocking {
         Mockito.`when`(memoDao.getMemo(0))
             .thenReturn(MemoEntity(0, "memo1"))
 
         val memo = memoRepository.getMemo(0)
         MatcherAssert.assertThat(memo, Matchers.`is`(Memo(0, "memo1")))
+    }
+
+    @Test
+    fun getMemo_returnNull() = runBlocking {
+        Mockito.`when`(memoDao.getMemo(0))
+            .thenReturn(null)
+
+        val memo = memoRepository.getMemo(0)
+        MatcherAssert.assertThat(memo, Matchers.nullValue())
     }
 }

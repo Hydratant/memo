@@ -1,4 +1,4 @@
-package com.tami.memo.data
+package com.tami.memo.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

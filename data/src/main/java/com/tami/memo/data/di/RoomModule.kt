@@ -2,8 +2,8 @@ package com.tami.memo.data.di
 
 import android.content.Context
 import androidx.room.Room
-import com.tami.memo.data.LocalMemoDatabase
-import com.tami.memo.data.MemoDao
+import com.tami.memo.data.db.LocalMemoDatabase
+import com.tami.memo.data.db.MemoDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
