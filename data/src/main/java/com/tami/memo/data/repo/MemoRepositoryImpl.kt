@@ -10,8 +10,10 @@ import kotlinx.coroutines.withContext
 class MemoRepositoryImpl constructor(
     private val memoDao: MemoDao
 ) : MemoRepository {
-    override suspend fun getMemo(uid: Int): Memo? =
-        withContext(Dispatchers.IO) { memoDao.getMemo(uid)?.toMemo() }
+    override suspend fun getMemo(uid: Int): Memo =
+        withContext(Dispatchers.IO) {
+            memoDao.getMemo(uid)?.toMemo() ?: throw NullPointerException("Memo가 없습니다.")
+        }
 
     override suspend fun getMemoList(): List<Memo> =
         withContext(Dispatchers.IO) { memoDao.getMemoList().map { it.toMemo() } }
