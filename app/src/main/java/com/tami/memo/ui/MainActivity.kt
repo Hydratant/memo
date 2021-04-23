@@ -1,7 +1,8 @@
-package com.tami.memo
+package com.tami.memo.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.tami.memo.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

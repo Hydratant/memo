@@ -18,7 +18,7 @@ android {
         versionName(ProjectConfig.versionName)
     }
 
-    java {
+    compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -53,5 +53,8 @@ dependencies {
     testImplementation(UnitTest.hamcrest)
     testImplementation(UnitTest.robolectric)
     implementation(UnitTest.testCore)
+
+    implementation(project(":data"))
+    implementation(project(":domain"))
 
 }
