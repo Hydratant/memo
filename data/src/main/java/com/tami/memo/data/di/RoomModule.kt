@@ -18,7 +18,7 @@ object RoomModule {
     @Provides
     @Singleton
     fun provideLocalMemoDatabase(@ApplicationContext context: Context): LocalMemoDatabase =
-        Room.databaseBuilder(context, LocalMemoDatabase::class.java, "memoDatabase").build()
+        Room.databaseBuilder(context, LocalMemoDatabase::class.java, "memo.db").build()
 
     @Provides
     @Singleton

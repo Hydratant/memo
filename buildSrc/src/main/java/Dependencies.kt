@@ -27,6 +27,16 @@ object AndroidX {
         private const val viewPager2Version = "1.0.0"
         const val viewpager2 = "androidx.viewpager2:viewpager2:$viewPager2Version"
     }
+
+    object KTX {
+        private const val viewModelVersion = "2.3.1"
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion"
+
+        private const val fragmentVersion = "1.3.3"
+        const val fragment = "androidx.fragment:fragment-ktx:$fragmentVersion"
+    }
+
+
 }
 
 object Material {

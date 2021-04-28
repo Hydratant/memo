@@ -47,6 +47,20 @@ dependencies {
 
     implementation(Timber.timber)
 
+    implementation(AndroidX.KTX.fragment)
+    implementation(AndroidX.KTX.viewModel)
+
+    // Room
+    implementation(Room.room)
+    kapt(Room.roomCompiler)
+    implementation(Room.roomKtx)
+
+
+    // Coroutine
+    implementation(Coroutine.coroutine)
+    implementation(Coroutine.coroutinesAndroid)
+    testImplementation(Coroutine.coroutineTest)
+
     testImplementation(UnitTest.junit)
     testImplementation(UnitTest.mockitoInline)
     testImplementation(UnitTest.mockitoKotlin)
