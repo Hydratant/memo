@@ -1,6 +1,7 @@
 package com.tami.memo
 
 import android.app.Application
+import com.tami.memo.base.isDebug
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -9,10 +10,16 @@ class MemoApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        IS_DEBUG = isDebug()
         initTimber()
     }
 
     private fun initTimber() {
-        Timber.plant(Timber.DebugTree())
+        if (IS_DEBUG)
+            Timber.plant(Timber.DebugTree())
+    }
+
+    companion object {
+        var IS_DEBUG = false
     }
 }
