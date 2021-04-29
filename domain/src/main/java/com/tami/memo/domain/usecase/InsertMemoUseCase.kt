@@ -7,6 +7,10 @@ import javax.inject.Inject
 class InsertMemoUseCase @Inject constructor(
     private val memoRepository: MemoRepository
 ) {
-    suspend operator fun invoke(memo: Memo): Result<List<Long>> =
-        useCaseInvoke { memoRepository.insertMemo(memo) }
+    suspend operator fun invoke(content: String): Result<Boolean> =
+        useCaseInvoke {
+            val memo = Memo(content = content)
+            val insertSuccessList = memoRepository.insertMemo(memo)
+            insertSuccessList.isNotEmpty()
+        }
 }

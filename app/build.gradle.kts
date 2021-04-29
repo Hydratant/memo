@@ -30,6 +30,11 @@ android {
         viewBinding = true
         dataBinding = true
     }
+
+    testOptions.unitTests {
+        isIncludeAndroidResources = true
+        isReturnDefaultValues = true
+    }
 }
 dependencies {
     implementation(Kotlin.kotlinStdLib)
@@ -48,6 +53,7 @@ dependencies {
     implementation(Timber.timber)
 
     implementation(AndroidX.KTX.fragment)
+
     implementation(AndroidX.KTX.viewModel)
 
     // Room
