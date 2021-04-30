@@ -1,6 +1,5 @@
 package com.tami.memo.ui.main
 
-import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope

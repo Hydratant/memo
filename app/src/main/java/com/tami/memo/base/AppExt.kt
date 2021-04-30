@@ -2,8 +2,8 @@ package com.tami.memo.base
 
 import android.app.Application
 import android.content.Context
-import android.content.pm.PackageManager
 import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager

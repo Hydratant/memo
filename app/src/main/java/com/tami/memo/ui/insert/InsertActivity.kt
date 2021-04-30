@@ -3,9 +3,7 @@ package com.tami.memo.ui.insert
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
-import androidx.core.content.getSystemService
 import androidx.databinding.DataBindingUtil
 import com.tami.memo.R
 import com.tami.memo.base.MemoActivity

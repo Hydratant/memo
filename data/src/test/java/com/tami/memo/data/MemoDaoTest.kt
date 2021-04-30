@@ -6,7 +6,6 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.tami.memo.data.db.LocalMemoDatabase
 import com.tami.memo.data.db.MemoDao
 import com.tami.memo.data.entity.MemoEntity
-import com.tami.memo.data.model.Memo
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers

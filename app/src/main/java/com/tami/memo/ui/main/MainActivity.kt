@@ -9,7 +9,6 @@ import com.tami.memo.common.EventObserver
 import com.tami.memo.databinding.ActivityMainBinding
 import com.tami.memo.ui.insert.InsertActivity
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : MemoActivity() {
