@@ -19,6 +19,8 @@
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="top|start"
+            android:lines="60"
             android:scrollbars="vertical"
             android:text="@={vm.content}" />
 

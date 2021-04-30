@@ -18,11 +18,18 @@ class InsertViewModel @Inject constructor(
 
     val content = MutableLiveData<String>()
 
+    private val _showKeyboard = MutableLiveData<Event<Unit>>()
+    val showKeyboard: LiveData<Event<Unit>> get() = _showKeyboard
+
     private val _insertSuccess = MutableLiveData<Event<Unit>>()
     val insertSuccess: LiveData<Event<Unit>> get() = _insertSuccess
 
     private val _insertFail = MutableLiveData<String>()
     val insertFail: LiveData<String> get() = _insertFail
+
+    init {
+        _showKeyboard.value = Event(Unit)
+    }
 
     fun insert(content: String) {
         viewModelScope.launch {
