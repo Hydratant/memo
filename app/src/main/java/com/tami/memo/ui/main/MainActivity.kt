@@ -7,6 +7,7 @@ import com.tami.memo.R
 import com.tami.memo.base.MemoActivity
 import com.tami.memo.common.EventObserver
 import com.tami.memo.databinding.ActivityMainBinding
+import com.tami.memo.ui.insert.InsertActivity
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -28,9 +29,7 @@ class MainActivity : MemoActivity() {
 
     private fun initLiveData() {
         vm.insert.observe(this, EventObserver {
-            Timber.i("insert ")
+            startActivity(InsertActivity.getIntent(this))
         })
-
-
     }
 }

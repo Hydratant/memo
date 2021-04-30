@@ -16,6 +16,8 @@ class InsertViewModel @Inject constructor(
     private val insertMemoUseCase: InsertMemoUseCase
 ) : MemoViewModel() {
 
+    val content = MutableLiveData<String>()
+
     private val _insertSuccess = MutableLiveData<Event<Unit>>()
     val insertSuccess: LiveData<Event<Unit>> get() = _insertSuccess
 
