@@ -45,19 +45,35 @@ class InsertViewModelTest {
             .thenReturn(Result.Success(true))
         insertViewModel.insert("content")
         MatcherAssert.assertThat(
-            insertViewModel.insertSuccess.getOrAwaitValue(), Matchers.`is`(true)
+            insertViewModel.insertSuccess.getOrAwaitValue(), Matchers.instanceOf(Event::class.java)
         )
     }
 
     @Test
-    fun `insertSuccess_insertMemoUseCase_return_false_liveDataValue_false`() = runBlockingTest {
-        Mockito.`when`(insertMemoUseCase("content"))
-            .thenReturn(Result.Success(false))
-        insertViewModel.insert("content")
-        MatcherAssert.assertThat(
-            insertViewModel.insertSuccess.getOrAwaitValue(), Matchers.`is`(false)
-        )
-    }
+    fun `insertSuccess_insertMemoUseCase_return_false_liveDataValue_failMessage`() =
+        runBlockingTest {
+            Mockito.`when`(insertMemoUseCase("content"))
+                .thenReturn(Result.Success(false))
+
+            insertViewModel.insert("content")
+            MatcherAssert.assertThat(
+                insertViewModel.insertFail.getOrAwaitValue(),
+                Matchers.`is`(InsertViewModel.INSERT_FAIL_DEFAULT_MESSAGE)
+            )
+        }
 
 
+    @Test
+    fun `insertSuccess_insertMemoUseCase_return_fail_liveDataValue_throwableMessage`() =
+        runBlockingTest {
+            val exceptionMessage = "insertMemoUseCase Exception"
+            Mockito.`when`(insertMemoUseCase("content"))
+                .thenReturn(Result.Error(IllegalArgumentException(exceptionMessage)))
+
+            insertViewModel.insert("content")
+            MatcherAssert.assertThat(
+                insertViewModel.insertFail.getOrAwaitValue(),
+                Matchers.`is`(exceptionMessage)
+            )
+        }
 }
