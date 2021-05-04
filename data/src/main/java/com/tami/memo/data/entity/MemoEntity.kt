@@ -6,7 +6,8 @@ import com.tami.memo.data.model.Memo
 
 @Entity(tableName = "Memo")
 data class MemoEntity(
-    @PrimaryKey val uid: Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    val uid: Int = 0,
     val content: String
 )
 

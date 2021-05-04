@@ -1,8 +1,10 @@
 package com.tami.memo.ui.insert
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.tami.memo.R
@@ -30,6 +32,15 @@ class InsertActivity : MemoActivity() {
 
         vm.showKeyboard.observe(this, EventObserver {
             bb.content.showKeyboard()
+        })
+
+        vm.insertFail.observe(this) {
+            it?.let { message -> Toast.makeText(this, message, Toast.LENGTH_LONG).show() }
+        }
+
+        vm.insertSuccess.observe(this, EventObserver {
+            setResult(Activity.RESULT_OK)
+            finish()
         })
     }
 

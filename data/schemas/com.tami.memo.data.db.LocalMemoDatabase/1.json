@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "89b8b54cebd5e02726bb9bc258dbb84a",
+    "identityHash": "1002437ce9dc41b57a5c076f27411c82",
     "entities": [
       {
         "tableName": "Memo",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER NOT NULL, `content` TEXT NOT NULL, PRIMARY KEY(`uid`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `content` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "uid",
@@ -25,7 +25,7 @@
           "columnNames": [
             "uid"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [],
         "foreignKeys": []
@@ -34,7 +34,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '89b8b54cebd5e02726bb9bc258dbb84a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1002437ce9dc41b57a5c076f27411c82')"
     ]
   }
 }

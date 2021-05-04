@@ -1,3 +1,5 @@
+@file:Suppress("RemoveRedundantBackticks")
+
 package com.tami.memo.ui.insert
 
 import android.os.Build
@@ -32,12 +34,21 @@ class InsertViewModelTest {
         insertViewModel = InsertViewModel(insertMemoUseCase)
     }
 
+    @Test
+    fun `insertViewModel_init_showKeyboard_in_value`() {
+        MatcherAssert.assertThat(
+            insertViewModel.showKeyboard.getOrAwaitValue(),
+            Matchers.instanceOf(Event::class.java)
+        )
+    }
+
 
     @Test
     fun `insertSuccess_insertMemoUseCase_return_true_liveDataValue_true`() = runBlockingTest {
         Mockito.`when`(insertMemoUseCase("content"))
             .thenReturn(Result.Success(true))
-        insertViewModel.insert("content")
+        insertViewModel.content.value = "content"
+        insertViewModel.insert()
         MatcherAssert.assertThat(
             insertViewModel.insertSuccess.getOrAwaitValue(), Matchers.instanceOf(Event::class.java)
         )
@@ -46,10 +57,11 @@ class InsertViewModelTest {
     @Test
     fun `insertSuccess_insertMemoUseCase_return_false_liveDataValue_failMessage`() =
         runBlockingTest {
+
             Mockito.`when`(insertMemoUseCase("content"))
                 .thenReturn(Result.Success(false))
-
-            insertViewModel.insert("content")
+            insertViewModel.content.value = "content"
+            insertViewModel.insert()
             MatcherAssert.assertThat(
                 insertViewModel.insertFail.getOrAwaitValue(),
                 Matchers.`is`(InsertViewModel.INSERT_FAIL_DEFAULT_MESSAGE)
@@ -63,8 +75,8 @@ class InsertViewModelTest {
             val exceptionMessage = "insertMemoUseCase Exception"
             Mockito.`when`(insertMemoUseCase("content"))
                 .thenReturn(Result.Error(IllegalArgumentException(exceptionMessage)))
-
-            insertViewModel.insert("content")
+            insertViewModel.content.value = "content"
+            insertViewModel.insert()
             MatcherAssert.assertThat(
                 insertViewModel.insertFail.getOrAwaitValue(),
                 Matchers.`is`(exceptionMessage)

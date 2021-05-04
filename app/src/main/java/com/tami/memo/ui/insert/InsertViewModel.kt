@@ -28,12 +28,14 @@ class InsertViewModel @Inject constructor(
     val insertFail: LiveData<String> get() = _insertFail
 
     init {
+        // 시작시 Keyboard 호출
         _showKeyboard.value = Event(Unit)
     }
 
-    fun insert(content: String) {
+    fun insert() {
         viewModelScope.launch {
-            insertMemoUseCase(content).fold({
+            val insertContent = content.value ?: ""
+            insertMemoUseCase(insertContent).fold({
                 if (it) _insertSuccess.value = Event(Unit)
                 else _insertFail.value = INSERT_FAIL_DEFAULT_MESSAGE
             }, {
