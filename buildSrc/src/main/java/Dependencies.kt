@@ -78,4 +78,10 @@ object Timber {
     const val timber = "com.jakewharton.timber:timber:$timberVersion"
 }
 
+@Suppress("SpellCheckingInspection")
+object Utils {
+    private const val stethoVersion = "1.5.1"
+    const val stetho = "com.facebook.stetho:stetho:$stethoVersion"
+}
+
 

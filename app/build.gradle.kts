@@ -44,16 +44,18 @@ dependencies {
     implementation(AndroidX.UI.recyclerView)
     implementation(AndroidX.UI.viewpager2)
 
+    // UI
     implementation(Material.material)
 
     // Hilt
     implementation(Hilt.hiltAndroid)
     kapt(Hilt.hiltCompiler)
 
+    // Log
     implementation(Timber.timber)
 
+    // androidKtx
     implementation(AndroidX.KTX.fragment)
-
     implementation(AndroidX.KTX.viewModel)
 
     // Room
@@ -61,6 +63,8 @@ dependencies {
     kapt(Room.roomCompiler)
     implementation(Room.roomKtx)
 
+
+    implementation(Utils.stetho)
 
     // Coroutine
     implementation(Coroutine.coroutine)
