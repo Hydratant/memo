@@ -43,6 +43,7 @@ dependencies {
     implementation(AndroidX.UI.constraintLayout)
     implementation(AndroidX.UI.recyclerView)
     implementation(AndroidX.UI.viewpager2)
+    implementation(AndroidX.UI.cardView)
 
     // UI
     implementation(Material.material)

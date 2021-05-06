@@ -26,6 +26,9 @@ object AndroidX {
 
         private const val viewPager2Version = "1.0.0"
         const val viewpager2 = "androidx.viewpager2:viewpager2:$viewPager2Version"
+
+        private const val cardViewVersion = "1.0.0"
+        const val cardView = "androidx.cardview:cardview:$cardViewVersion"
     }
 
     object KTX {
