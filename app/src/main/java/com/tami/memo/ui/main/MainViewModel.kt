@@ -22,8 +22,8 @@ class MainViewModel @Inject constructor(
     private val _errorMessage = MutableLiveData<Event<String>>()
     val errorMessage: LiveData<Event<String>> = _errorMessage
 
-    private val _insert = MutableLiveData<Event<Unit>>()
-    val insert: LiveData<Event<Unit>> = _insert
+    private val _goInsert = MutableLiveData<Event<Unit>>()
+    val goInsert: LiveData<Event<Unit>> = _goInsert
 
     init {
         getMemoList()
@@ -31,9 +31,7 @@ class MainViewModel @Inject constructor(
 
     private fun getMemoList() {
         viewModelScope.launch {
-            getMemoListUseCase().fold({
-                _memoList.value = it.toMutableList()
-            }, {
+            getMemoListUseCase().fold({ _memoList.value = it.toMutableList() }, {
                 val errorMessage = it.message ?: "errorMessage"
                 _errorMessage.value = Event(errorMessage)
             })
@@ -41,6 +39,6 @@ class MainViewModel @Inject constructor(
     }
 
     fun goInsert() {
-        _insert.value = Event(Unit)
+        _goInsert.value = Event(Unit)
     }
 }

@@ -27,7 +27,7 @@ class MainActivity : MemoActivity() {
     }
 
     private fun initLiveData() {
-        vm.insert.observe(this, EventObserver {
+        vm.goInsert.observe(this, EventObserver {
             startActivity(InsertActivity.getIntent(this))
         })
     }
