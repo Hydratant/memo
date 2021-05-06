@@ -4,6 +4,7 @@ package com.tami.memo.ui.insert
 
 import android.os.Build
 import com.nhaarman.mockitokotlin2.mock
+import com.tami.memo.TestApplication
 import com.tami.memo.common.Event
 import com.tami.memo.domain.usecase.InsertMemoUseCase
 import com.tami.memo.domain.usecase.Result
@@ -22,7 +23,7 @@ import org.robolectric.annotation.Config
 
 @ObsoleteCoroutinesApi
 @ExperimentalCoroutinesApi
-@Config(sdk = [Build.VERSION_CODES.O])
+@Config(sdk = [Build.VERSION_CODES.O_MR1], application = TestApplication::class)
 @RunWith(RobolectricTestRunner::class)
 class InsertViewModelTest {
 
