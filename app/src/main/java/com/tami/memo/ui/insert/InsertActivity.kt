@@ -23,7 +23,11 @@ class InsertActivity : BindingActivity<InsertActBinding>(R.layout.insert_act) {
             bb.content.showKeyboard()
         })
         vm.insertFail.observe(this) {
-            it?.let { message -> Toast.makeText(this, message, Toast.LENGTH_LONG).show() }
+            it?.let { message ->
+                showDialog(message, getString(R.string.ok), { _, _ ->
+                    finish()
+                })
+            }
         }
         vm.insertSuccess.observe(this, EventObserver {
             setResult(Activity.RESULT_OK)

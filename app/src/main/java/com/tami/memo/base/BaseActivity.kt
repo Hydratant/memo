@@ -30,8 +30,10 @@ abstract class BaseActivity : AppCompatActivity() {
             positiveListener,
             negativeButtonText,
             negativeListener
-        )
-        dlg.setCanceledOnTouchOutside(false)
+        ).apply {
+            setCanceledOnTouchOutside(false)
+            setCancelable(false)
+        }
         if (lifecycle.currentState == Lifecycle.State.DESTROYED) {
             Timber.w("activity is Lifecycle destroyed")
             return dlg
