@@ -9,8 +9,6 @@ object MemoBindingAdapter {
     @JvmStatic
     @BindingAdapter("app:memoList")
     fun setMemoList(recyclerView: RecyclerView, memoList: MutableList<Memo>?) {
-
-
         recyclerView.adapter?.let { adapter ->
             if (adapter is MemoAdapter) {
                 memoList?.let { items -> adapter.update(items) }

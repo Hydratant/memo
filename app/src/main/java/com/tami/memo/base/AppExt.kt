@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.getSystemService
 
 
@@ -34,7 +35,12 @@ fun View.showKeyboard() {
             viewTreeObserver.removeOnGlobalLayoutListener(this)
         }
     })
+}
 
+fun AppCompatActivity.getText(text: Any?): CharSequence? {
+    if (text == null) return null
+    if (text is CharSequence) return text
+    return if (text is Int) getString((text as Int?)!!) else text.toString()
 }
 
 
