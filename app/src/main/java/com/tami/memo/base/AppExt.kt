@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
@@ -43,4 +44,9 @@ fun AppCompatActivity.getText(text: Any?): CharSequence? {
     return if (text is Int) getString((text as Int?)!!) else text.toString()
 }
 
+
+fun Context.dp2px(dp: Float): Int {
+    val displayMetrics = resources.displayMetrics
+    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics).toInt()
+}
 

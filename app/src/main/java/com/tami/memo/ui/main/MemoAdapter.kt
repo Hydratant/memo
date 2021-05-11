@@ -1,9 +1,12 @@
 package com.tami.memo.ui.main
 
+import android.graphics.Rect
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.tami.memo.base.dp2px
 import com.tami.memo.data.model.Memo
 import com.tami.memo.databinding.MemoItemBinding
 
@@ -38,5 +41,21 @@ class MemoItemHolder(private val bb: MemoItemBinding) : RecyclerView.ViewHolder(
         with(bb) {
             this.item = item
         }
+    }
+}
+
+class MemoItemDecoration(
+    private val dp: Float
+) : RecyclerView.ItemDecoration() {
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
+        super.getItemOffsets(outRect, view, parent, state)
+        val context = view.context
+        val offset = context.dp2px(dp)
+        outRect.set(offset, offset, offset, offset)
     }
 }
