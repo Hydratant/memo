@@ -13,11 +13,11 @@ object MemoBindingAdapter {
             if (adapter is MemoAdapter) {
                 memoList?.let { items -> adapter.update(items) }
             }
-            recyclerView.addItemDecoration(MemoItemDecoration(8f))
         } ?: run {
             recyclerView.adapter = MemoAdapter().apply {
                 memoList?.let { items -> update(items) }
             }
+            recyclerView.addItemDecoration(MemoItemDecoration(8f))
         }
     }
 }

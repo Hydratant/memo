@@ -29,7 +29,7 @@ class MainViewModel @Inject constructor(
         getMemoList()
     }
 
-    private fun getMemoList() {
+    fun getMemoList() {
         viewModelScope.launch {
             getMemoListUseCase().fold({ _memoList.value = it.toMutableList() }, {
                 val errorMessage = it.message ?: "errorMessage"
