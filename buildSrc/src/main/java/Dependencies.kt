@@ -1,27 +1,27 @@
 object Kotlin {
-    private const val kotlinVersion = "1.4.32"
+    private const val kotlinVersion = "1.5.31"
     const val gradlePluginKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
 }
 
 object Gradle {
-    private const val gradleVersion = "4.1.3"
+    private const val gradleVersion = "4.2.2"
     const val gradleBuildTool = "com.android.tools.build:gradle:${gradleVersion}"
 }
 
 object AndroidX {
-    private const val coreKtxVersion = "1.3.2"
+    private const val coreKtxVersion = "1.6.0"
     const val coreKtx = "androidx.core:core-ktx:${coreKtxVersion}"
 
-    private const val appcompatVersion = "1.2.0"
+    private const val appcompatVersion = "1.3.1"
     const val appcompat = "androidx.appcompat:appcompat:${appcompatVersion}"
 
     object UI {
-        private const val constraintLayoutVersion = "2.0.4"
+        private const val constraintLayoutVersion = "2.1.1"
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}"
 
-        private const val recyclerViewVersion = "1.1.0"
+        private const val recyclerViewVersion = "1.2.1"
         const val recyclerView = "androidx.recyclerview:recyclerview:${recyclerViewVersion}"
 
         private const val viewPager2Version = "1.0.0"
@@ -35,7 +35,7 @@ object AndroidX {
         private const val viewModelVersion = "2.3.1"
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion"
 
-        private const val fragmentVersion = "1.3.3"
+        private const val fragmentVersion = "1.3.6"
         const val fragment = "androidx.fragment:fragment-ktx:$fragmentVersion"
     }
 
@@ -43,13 +43,13 @@ object AndroidX {
 }
 
 object Material {
-    private const val materialVersion = "1.3.0"
+    private const val materialVersion = "1.4.0"
     const val material = "com.google.android.material:material:${materialVersion}"
 }
 
 
 object Hilt {
-    private const val daggerHiltVersion = "2.34.1-beta"
+    private const val daggerHiltVersion = "2.39.1"
     const val gradlePluginDaggerHilt =
         "com.google.dagger:hilt-android-gradle-plugin:${daggerHiltVersion}"
     const val hiltAndroid = "com.google.dagger:hilt-android:${daggerHiltVersion}"
@@ -60,7 +60,7 @@ object Hilt {
 
 
 object Room {
-    private const val roomVersion = "2.2.6"
+    private const val roomVersion = "2.3.0"
     const val room = "androidx.room:room-runtime:$roomVersion"
     const val roomCompiler = "androidx.room:room-compiler:$roomVersion"
     const val roomKtx = "androidx.room:room-ktx:$roomVersion"
@@ -68,7 +68,7 @@ object Room {
 }
 
 object Coroutine {
-    private const val coroutineVersion = "1.4.3"
+    private const val coroutineVersion = "1.5.2"
     const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutineVersion}"
     const val coroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
@@ -83,7 +83,7 @@ object Timber {
 
 @Suppress("SpellCheckingInspection")
 object Utils {
-    private const val stethoVersion = "1.5.1"
+    private const val stethoVersion = "1.6.0"
     const val stetho = "com.facebook.stetho:stetho:$stethoVersion"
 }
 

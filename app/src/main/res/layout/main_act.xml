@@ -11,6 +11,7 @@
             type="com.tami.memo.ui.main.MainViewModel" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -41,4 +42,5 @@
             tools:listitem="@layout/memo_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
