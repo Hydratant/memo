@@ -68,6 +68,17 @@ class MemoDaoTest {
         }
     }
 
+    fun updateContent() = runBlocking {
+        withContext(Dispatchers.IO) {
+            val testMemo = MemoEntity(1, "title1", "content1")
+            val updateContent = "content2"
+            memoDao.insertMemo(testMemo)
+            MatcherAssert.assertThat(memoDao.getMemos()[0], Matchers.`is`(testMemo))
+            memoDao.contentUpdateMemo(1, updateContent)
+            MatcherAssert.assertThat(memoDao.getMemos()[0].content, Matchers.`is`(updateContent))
+        }
+    }
+
     @After
     fun after() {
         localMemoDatabase.close()
