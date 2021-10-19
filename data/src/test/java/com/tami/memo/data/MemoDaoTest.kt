@@ -7,15 +7,12 @@ import com.tami.memo.data.db.LocalMemoDatabase
 import com.tami.memo.data.db.MemoDao
 import com.tami.memo.data.entity.MemoEntity
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
@@ -74,7 +71,7 @@ class MemoDaoTest {
             val updateContent = "content2"
             memoDao.insertMemo(testMemo)
             MatcherAssert.assertThat(memoDao.getMemos()[0], Matchers.`is`(testMemo))
-            memoDao.contentUpdateMemo(1, updateContent)
+            memoDao.updateMemoContent(1, updateContent)
             MatcherAssert.assertThat(memoDao.getMemos()[0].content, Matchers.`is`(updateContent))
         }
     }

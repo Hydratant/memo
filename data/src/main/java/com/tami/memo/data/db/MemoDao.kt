@@ -20,7 +20,7 @@ interface MemoDao {
     suspend fun updateMemo(memoEntity: MemoEntity): Int
 
     @Query("UPDATE Memo SET content = :content WHERE uid = :uid")
-    suspend fun contentUpdateMemo(uid: Int, content: String)
+    suspend fun updateMemoContent(uid: Int, content: String)
 
     @Query("DELETE FROM Memo WHERE uid = :uid")
     suspend fun deleteMemoById(uid: Int): Int
