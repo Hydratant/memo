@@ -38,6 +38,7 @@ class MemoDaoTest {
             val testMemo = MemoEntity(1, "title1", "content1")
             memoDao.insertMemo(testMemo)
             MatcherAssert.assertThat(memoDao.getMemos()[0], Matchers.`is`(testMemo))
+            MatcherAssert.assertThat(memoDao.getMemoById(1), Matchers.`is`(testMemo))
         }
     }
 
@@ -71,7 +72,7 @@ class MemoDaoTest {
             val updateContent = "content2"
             memoDao.insertMemo(testMemo)
             MatcherAssert.assertThat(memoDao.getMemos()[0], Matchers.`is`(testMemo))
-            memoDao.updateMemoContent(1, updateContent)
+            memoDao.updateContentToMemo(1, updateContent)
             MatcherAssert.assertThat(memoDao.getMemos()[0].content, Matchers.`is`(updateContent))
         }
     }

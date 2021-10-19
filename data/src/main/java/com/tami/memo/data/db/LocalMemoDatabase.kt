@@ -5,6 +5,6 @@ import androidx.room.RoomDatabase
 import com.tami.memo.data.entity.MemoEntity
 
 @Database(entities = [MemoEntity::class], version = 1, exportSchema = true)
-abstract class LocalMemoDatabase : RoomDatabase() {
+internal abstract class LocalMemoDatabase : RoomDatabase() {
     abstract fun memoDao(): MemoDao
 }
