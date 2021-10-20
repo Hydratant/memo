@@ -5,7 +5,7 @@ import com.tami.memo.data.entity.MemoEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-internal interface MemoDao {
+interface MemoDao {
 
     @Query("SELECT * FROM Memo")
     fun observeMemos(): Flow<List<MemoEntity>>
@@ -17,7 +17,7 @@ internal interface MemoDao {
     fun observeMemoById(id: Int): Flow<MemoEntity>
 
     @Query("SELECT * FROM Memo WHERE uid = :id")
-    suspend fun getMemoById(id: Int): MemoEntity
+    suspend fun getMemoById(id: Int): MemoEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMemo(memoEntity: MemoEntity)
@@ -26,7 +26,7 @@ internal interface MemoDao {
     suspend fun updateMemo(memoEntity: MemoEntity): Int
 
     @Query("UPDATE Memo SET content = :content WHERE uid = :id")
-    suspend fun updateContentToMemo(id: Int, content: String)
+    suspend fun updateContentToMemo(id: Int, content: String): Int
 
     @Query("DELETE FROM Memo WHERE uid = :id")
     suspend fun deleteMemoById(id: Int): Int
