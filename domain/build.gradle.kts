@@ -49,4 +49,5 @@ dependencies {
     implementation(UnitTest.testCore)
 
     implementation(project(":data"))
+    implementation(project(":share"))
 }
