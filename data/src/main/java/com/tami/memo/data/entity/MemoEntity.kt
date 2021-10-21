@@ -12,5 +12,5 @@ data class MemoEntity(
     val content: String
 )
 
-fun MemoEntity.toMemo(): Memo = Memo(uid, title, content)
-fun Memo.toMemoEntity(): MemoEntity = MemoEntity(uid, title, content)
+fun MemoEntity.toMemo(): Memo = Memo(title, content)
+fun Memo.toMemoEntity(): MemoEntity = MemoEntity(title = title, content = content)

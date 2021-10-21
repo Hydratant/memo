@@ -20,8 +20,8 @@ class MemoRepositoryImpl @Inject constructor(
         return memoDao.getMemoById(id)?.toMemo()
     }
 
-    override suspend fun insertMemo(memo: Memo) {
-        memoDao.insertMemo(memo.toMemoEntity())
+    override suspend fun insertMemo(title: String, content: String) {
+        memoDao.insertMemo(Memo(title, content).toMemoEntity())
     }
 
     override suspend fun updateContentToMemo(id: Int, content: String): Int {

@@ -5,7 +5,6 @@ import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
 import com.tami.memo.data.db.LocalMemoDatabase
 import com.tami.memo.data.db.MemoDao
-import com.tami.memo.data.entity.MemoEntity
 import com.tami.memo.data.model.Memo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -44,7 +43,7 @@ class MemoRepositoryTest {
     fun insertMemo() = runBlocking {
         withContext(Dispatchers.IO) {
             val testMemo = Memo(1, "title1", "content1")
-            memoRepository.insertMemo(testMemo)
+            memoRepository.insertMemo(,)
             val resultMemo = memoRepository.getMemo(1)
             MatcherAssert.assertThat(resultMemo?.content, Matchers.`is`("content1"))
             MatcherAssert.assertThat(resultMemo?.title, Matchers.`is`("title1"))
