@@ -57,6 +57,7 @@ dependencies {
     // androidKtx
     implementation(AndroidX.KTX.fragment)
     implementation(AndroidX.KTX.viewModel)
+    implementation(AndroidX.KTX.liveData)
 
     // Room
     implementation(Room.room)
@@ -80,5 +81,6 @@ dependencies {
 
     implementation(project(":data"))
     implementation(project(":domain"))
+    implementation(project(":share"))
 
 }

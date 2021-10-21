@@ -32,8 +32,9 @@ object AndroidX {
     }
 
     object KTX {
-        private const val viewModelVersion = "2.3.1"
-        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion"
+        private const val lifeCycleVersion = "2.3.1"
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion"
+        const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion"
 
         private const val fragmentVersion = "1.3.6"
         const val fragment = "androidx.fragment:fragment-ktx:$fragmentVersion"
