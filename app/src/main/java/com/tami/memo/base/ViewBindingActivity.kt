@@ -7,23 +7,16 @@ import androidx.viewbinding.ViewBinding
 abstract class ViewBindingActivity<VB : ViewBinding> :
     BaseActivity() {
 
-    private var _bb: ViewBinding? = null
+    lateinit var bb: VB
     abstract val bindingInflater: (LayoutInflater) -> VB
 
-    @Suppress("UNCHECKED_CAST")
-    protected val bb: VB
-        get() = _bb as VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _bb = bindingInflater.invoke(layoutInflater)
-        setContentView(requireNotNull(_bb).root)
+        bb = bindingInflater.invoke(layoutInflater)
+        setContentView(bb.root)
         onLoadOnce()
     }
 
     abstract fun onLoadOnce()
-    override fun onDestroy() {
-        super.onDestroy()
-        _bb = null
-    }
 }

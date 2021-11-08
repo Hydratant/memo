@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import androidx.activity.viewModels
 import com.tami.memo.base.ViewBindingActivity
 import com.tami.memo.databinding.ActivityMainBinding
+import com.tami.memo.ui.add.AddActivity
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -18,6 +19,9 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
     override fun onLoadOnce() {
         vm.memos.observe(this) {
             Timber.i("MemoList : $it")
+        }
+        bb.fabAdd.setOnClickListener {
+            startActivity(AddActivity.getIntent(this))
         }
     }
 }
